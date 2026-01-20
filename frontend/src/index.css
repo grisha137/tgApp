@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-dark-border;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  
+  /* Тёмная тема по умолчанию */
+  .dark {
+    @apply bg-dark-bg text-white;
+  }
+}
+
+@layer components {
+  /* Анимация тряски */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.3s ease-in-out;
+  }
+  
+  /* Анимация пульсации */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .pulse {
+    animation: pulse 0.2s ease-in-out;
+  }
+}
+
+@layer utilities {
+  /* CSS переменные для Telegram темы */
+  :root {
+    --tg-bg-color: #0f172a;
+    --tg-text-color: #f8fafc;
+    --tg-hint-color: #94a3b8;
+    --tg-link-color: #0ea5e9;
+    --tg-button-color: #0ea5e9;
+    --tg-button-text-color: #ffffff;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Стили для частиц */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+  transition: all 0.8s ease-out;
+}
+
+/* Убираем выделение текста на мобильных */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
